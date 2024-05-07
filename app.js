@@ -1,13 +1,13 @@
 require("express-async-errors");
-
+require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
 const http = require("http");
 const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");  //to parse data to token
 const path = require("path");
-const dotenv = require("dotenv");
-dotenv.config();
+/*const dotenv = require("dotenv");
+dotenv.config();*/
 
 const app = express();
 
