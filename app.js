@@ -11,7 +11,10 @@ dotenv.config();
 
 const app = express();
 
+// const connectDB = require("./db/connect.js");
 const connectDB = require("./db/connect.js");
+const authRoutes= require ('./routes/authRoutes.js')
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Middleware
@@ -22,6 +25,7 @@ app.use(cors());
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
+app.use('/api/v1/auth', authRoutes)
 
 
 app.use(notFoundMiddleware);
