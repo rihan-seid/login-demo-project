@@ -8,6 +8,8 @@ const cookieParser = require("cookie-parser");  //to parse data to token
 const path = require("path");
 /*const dotenv = require("dotenv");
 dotenv.config();*/
+const postRoute=require("./routes/productRout.js")
+
 
 const app = express();
 
@@ -25,8 +27,8 @@ app.use(cors());
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
-app.use('/api/v1/auth', authRoutes)
-
+app.use('/api/v1/auth', authRoutes);
+app.use ('/api/v1/post' , postRoute)
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
